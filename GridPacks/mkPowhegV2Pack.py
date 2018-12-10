@@ -1,4 +1,9 @@
 
+import os
+
+UseCondor = True
+
+
 # Definition of the input parameters:
 # (1) -p grid production stage [f]  (one go)
 # (2) -i intput card name [powheg.input]
@@ -8,7 +13,6 @@
 # (6) -n the number of events to run
 
 
-import os
 
 ########### All
 
@@ -29,6 +33,20 @@ massGrid = {'VBFhWWlnuqq': [125, 200, 250, 300, 350, 400, 450, 500, 550,600, 650
 
 #massGrid = {'VBFhWWlnuqq': [400]
 #            }
+
+if UseCondor == True :
+  print "Using Condor"
+  # HWminusJ_HToWW_M125_13TeV_powheg_pythia8_TuneCP5
+  #cmd = 'python ./run_pwg_condor.py -p f -i  production/2017/13TeV/Higgs/WminusHJ_HanythingJ_NNPDF31_13TeV/HWminusJ_HanythingJ_NNPDF31_13TeV_M125_Vinclusive.input -g ../JHUGen/cards/decay/WWany.input -m HWJ -f HWminusJ_HWWany_NNPDF31_13TeV_M125_Vinc_JHU724 '+' -q workday -n 10'
+  #print cmd
+  #os.system(cmd)
+  cmd = 'python ./run_pwg_condor.py -p f -i  production/2017/13TeV/Higgs/WplusHJ_HanythingJ_NNPDF31_13TeV/HWplusJ_HanythingJ_NNPDF31_13TeV_M125_Vinclusive.input -g ../JHUGen/cards/decay/WWany.input -m HWJ -f HWplusJ_HWWany_NNPDF31_13TeV_M125_Vinc_JHU724 '+' -q tomorrow -n 10'
+  print cmd
+  os.system(cmd)
+else:
+  print "Not using Condor"
+
+
 
 #####################################################
 # Gridpack production with multiple processors
@@ -201,10 +219,12 @@ massGrid = {'VBFhWWlnuqq': [125, 200, 250, 300, 350, 400, 450, 500, 550,600, 650
 #os.system(cmd)
 
 
-cmd = 'python ./run_pwg.py -p f -i production/2017/13TeV/WZTo3lNu_NNPDF31nnlo_13TeV/WZ_lllnu_mllmin0001max1_NNPDF31nnlo_13TeV.input -m WZ -f WZTo3LNu_mllmin0001max1_NNPDF31_TuneCP5_13TeV_powheg_pythia8 -q 1nd -n 100'
-print cmd
-os.system(cmd)
+#cmd = 'python ./run_pwg.py -p f -i production/2017/13TeV/WZTo3lNu_NNPDF31nnlo_13TeV/WZ_lllnu_mllmin0001max1_NNPDF31nnlo_13TeV.input -m WZ -f WZTo3LNu_mllmin0001max1_NNPDF31_TuneCP5_13TeV_powheg_pythia8 -q 1nd -n 100'
+#print cmd
+#os.system(cmd)
 
 #cmd = 'python ./run_pwg.py -p f -i production/2017/13TeV/Higgs/ggHZ_HanythingJ_NNPDF31_13TeV/ggHZ_HanythingJ_NNPDF31_13TeV_M125_Vleptonic.input -m ggHZ -f ggHZ_HanythingJ_NNPDF31_13TeV_M125_Vleptonic -q 1nw -n 1000'
 #print cmd
 #os.system(cmd)
+
+
