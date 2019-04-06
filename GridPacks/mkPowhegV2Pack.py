@@ -52,46 +52,61 @@ if UseCondor == True :
 # one go
 #########################
 #
-  for mass in massGrid['VBfHWW2L2Nu']:
-      print mass
-      if mass < 300 :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m VBF_H -f VBfHWW2L2Nu_jhu'+str(mass)+' -q tomorrow -n 30'
-      else :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m VBF_H -f VBfHWW2L2Nu_jhu'+str(mass)+' -q tomorrow -n 30'
-  
-      print cmd
-      os.system(cmd)
+#  for mass in massGrid['VBfHWW2L2Nu']:
+#      print mass
+#      if mass < 300 :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m VBF_H -f VBfHWW2L2Nu_jhu'+str(mass)+' -q tomorrow -n 30'
+#      else :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m VBF_H -f VBfHWW2L2Nu_jhu'+str(mass)+' -q tomorrow -n 30'
+#  
+#      print cmd
+#      os.system(cmd)
+#
+#  for mass in massGrid['VBfHWWlnuqq']:
+#      print mass
+#      if mass < 300 :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus.input -m VBF_H -f VBfHWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
+#      else :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus_reweightdecay_CPS.input -m VBF_H -f VBfHWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
+#  
+#      print cmd
+#      os.system(cmd)
+#
+#  for mass in massGrid['ggHToWW2L2Nu']:
+#      print mass
+#      if mass < 300 :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
+#      else :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
+#  
+#      print cmd
+#      os.system(cmd)
+#
+#  for mass in massGrid['ggHToWWlnuqq']:
+#      print mass
+#      if mass < 300 :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus.input -m gg_H_quark-mass-effects -f gghWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
+#      else :
+#          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
+#  
+#      print cmd
+#      os.system(cmd)
 
-  for mass in massGrid['VBfHWWlnuqq']:
-      print mass
-      if mass < 300 :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus.input -m VBF_H -f VBfHWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
-      else :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/VBF_H_WW_NNPDF31_13TeV/VBF_H_WW_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus_reweightdecay_CPS.input -m VBF_H -f VBfHWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
-  
-      print cmd
-      os.system(cmd)
+#  for mass in massGrid['HZJ']:
+#    if mass != 125: continue
+#    print mass
+#    # HToWW
+#    cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/HZJ_HanythingJ_NNPDF31_13TeV/HZJ_HanythingJ_NNPDF31_13TeV_M'+str(mass)+'_Vleptonic.input -g ../JHUGen/cards/decay/WWany.input  -m HZJ -f HZJ_HWWany_NNPDF31_13TeV_'+str(mass)+'_Vleptonic_JHU726 '+' -q tomorrow -n 10'
+#    print cmd
+#    os.system(cmd)
 
-  for mass in massGrid['ggHToWW2L2Nu']:
-      print mass
-      if mass < 300 :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
-      else :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
-  
-      print cmd
-      os.system(cmd)
-
-  for mass in massGrid['ggHToWWlnuqq']:
-      print mass
-      if mass < 300 :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus.input -m gg_H_quark-mass-effects -f gghWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
-      else :
-          cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WWlnuqq_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWWlnuqq_jhu'+str(mass)+' -q tomorrow -n 30'
-  
-      print cmd
-      os.system(cmd)
-
+  for mass in massGrid['HZJ']:
+    if mass != 125: continue
+    print mass
+    # HToWW
+    cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/ggHZ_HanythingJ_NNPDF31_13TeV/ggHZ_HanythingJ_NNPDF31_13TeV_M'+str(mass)+'_Vleptonic.input -g ../JHUGen/cards/decay/WWany.input  -m ggHZ -f ggHZ_HWWany_NNPDF31_13TeV_'+str(mass)+'_Vleptonic_JHU726 '+' -q tomorrow -n 10'
+    print cmd
+    os.system(cmd)
 
 else:
   print "Not using Condor"
