@@ -24,6 +24,7 @@ class higgsLHEAnalyzer : public EDAnalyzer {
 private: 
   bool dumpLHE_;
   bool checkPDG_;
+  TH1F * h_hMass;
   TH1F * h_Mass;
   TH1F * h_longMass;
   TH1F * h_diEMass;
@@ -36,6 +37,7 @@ public:
     tokenLHEEvent_(consumes<LHEEventProduct>(cfg.getUntrackedParameter<edm::InputTag>("moduleLabel", std::string("source")) ) )
   {
     edm::Service<TFileService> fs;
+    h_hMass    = fs->make<TH1F>( "h_hMass"  , "mh", 50,  95, 155 );
     h_Mass    = fs->make<TH1F>( "h_Mass"  , "mll", 50,  0, 1 );
     h_diEMass    = fs->make<TH1F>( "h_diEMass"  , "mll", 50,  0, 1 );
     h_diMuMass    = fs->make<TH1F>( "h_diMuMass"  , "mll", 50,  0, 1 );
@@ -103,9 +105,9 @@ private:
 	id7=idup_[icount];
 	l2_tlov4.SetPxPyPzE((pup_[icount])[0] ,(pup_[icount])[1],(pup_[icount])[2],(pup_[icount])[3] );
       }
-      if(idup_[icount] == 23 ){
-      //if(idup_[icount] == 25 ){
-	//h_hMass->Fill((pup_[icount])[4]); 
+      //if(idup_[icount] == 23 ){
+      if(idup_[icount] == 25 ){
+	h_hMass->Fill((pup_[icount])[4]); 
       }
     }
     diLep_tlov4 = l1_tlov4+l2_tlov4;
