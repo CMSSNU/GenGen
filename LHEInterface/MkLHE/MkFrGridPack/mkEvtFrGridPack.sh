@@ -1,4 +1,5 @@
-EXT="tgz"
+EXT="xz"
+#EXT="tgz"
 #EXT="tar.xz"
 ARR_TAR=( $(ls *".${EXT}") )
 
@@ -14,8 +15,9 @@ for gridpack in ${ARR_TAR[@]};do
   pwd
   echo "unzip <<<<<<<<"
   echo ${gridpack}
-  tar xvfz ../${gridpack}
-  ./runcmsgrid.sh 10 10 10 &> test_log.txt &
+  tar xvf ../${gridpack}
+  #tar xvfz ../${gridpack}
+  ./runcmsgrid.sh 50 10 10 &> test_log.txt &
   popd
 
 done

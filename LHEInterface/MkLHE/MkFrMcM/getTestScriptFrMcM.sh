@@ -1,4 +1,7 @@
-nameId=HIG-RunIIFall18wmLHEGS-00581
+nameId=HIG-RunIIFall18wmLHEGS-02785
+#nameId=HIG-RunIIFall17wmLHEGS-04016
+#nameId=HIG-RunIIFall17wmLHEGS-04015
+#nameId=HIG-RunIIFall18wmLHEGS-00581
 #nameId=HIG-RunIIFall17wmLHEGS-02473
 #nameId=HIG-RunIIFall17wmLHEGS-01941
 #nameId=HIG-RunIIFall17wmLHEGS-01944
@@ -8,7 +11,8 @@ wget https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_test/${nameId}
 #wget https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_test/HIG-RunIIFall17wmLHEGS-01668
 chmod u+x ${nameId}
 ##################################################################################
-# If you  want to run this interactivley, you should run this outside of CMSSW.
+# If you  want to run this interactivley, you should run this 
+# outside of CMSSW.
 #
 # Inside the script, you can set the number of generated events
 # trace this number up as in "echo 31 event", then set the number as you like

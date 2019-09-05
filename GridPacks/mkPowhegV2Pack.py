@@ -3,7 +3,7 @@ import os
 
 UseCondor = True
 dry_run = False
-useJHU = True
+useJHU = False
 
 
 # Definition of the input parameters:
@@ -80,14 +80,17 @@ if UseCondor == True :
       if useJHU:
         if mass < 300 :
             #cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
-            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M125W10.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nuW10_jhu'+str(mass)+' -q tomorrow -n 30'
+            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M125W10.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nuW10_jhu'+str(mass)+' -n 30'
+            #cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M125W10.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus.input -m gg_H_quark-mass-effects -f gghWW2l2nuW10_jhu'+str(mass)+' -q tomorrow -n 300'
         else :
-            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 30'
+            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -g ../JHUGen/cards/decay/WW2l2nu_withtaus_reweightdecay_CPS.input -m gg_H_quark-mass-effects -f gghWW2l2nu_jhu'+str(mass)+' -q tomorrow -n 300'
       else:
         if mass < 300 :
-            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f gghWW2l2nu'+str(mass)+' -q tomorrow -n 30'
+            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f ggh'+str(mass)+'  -n 30'
+            #cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f ggh'+str(mass)+' -q tomorrow -n 300'
+            #cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f gghWW2l2nu'+str(mass)+' -q tomorrow -n 300'
         else :
-            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f gghWW2l2nu'+str(mass)+' -q tomorrow -n 30'
+            cmd = 'python ./run_pwg_condor.py -p f -i production/2017/13TeV/Higgs/gg_H_WW_quark-mass-effects_NNPDF31_13TeV/gg_H_WW_quark-mass-effects_NNPDF31_13TeV_M'+str(mass)+'.input -m gg_H_quark-mass-effects -f gghWW2l2nu'+str(mass)+' -q tomorrow -n 300'
   
       print cmd
       if not dry_run:

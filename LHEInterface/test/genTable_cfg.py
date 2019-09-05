@@ -16,7 +16,8 @@ process.load("FWCore.MessageLogger.MessageLogger_cfi")
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:MCDBtoEDM_WZmll0001_NONE.root'),
+    fileNames = cms.untracked.vstring('file:MCDBtoEDM_NONE.root'),
+    #fileNames = cms.untracked.vstring('file:MCDBtoEDM_WZmll0001_NONE.root'),
     #fileNames = cms.untracked.vstring('file:../../HZJ/HIG-RunIIFall17wmLHEGS-01716.root'),
     #fileNames = cms.untracked.vstring('file:../../HIG-RunIIFall17wmLHEGS-01712.root'),
     #fileNames = cms.untracked.vstring('file:../../HIG-RunIIFall17wmLHEGS-01702.root'),
