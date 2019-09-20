@@ -45,20 +45,20 @@ ttHWWlnuany ={'0PM':        ['anomalouscouplings/ttH_NNPDF31_13TeV/SM.input','WW
 prodCardBase='cards/2017/13TeV/'
 decayCardBase='cards/decay/'
 
-#for key in VBFH:
+for key in VBFH:
 #for key in ttHWWlnuany:
 #for key in ttHWWany:
 #for key in JJH:
 #for key in WH:
-for key in ZH:
+#for key in ZH:
   print "For coupling "+key
 
-  """
+  #"""
   prodCard = prodCardBase+VBFH[key][0]
   decayCard = decayCardBase+VBFH[key][1]
   name = 'VBFHiggs'+key+'ToWWTo2L2Nu_M-125_13TeV-JHU710'
   fileName='mkJHuJHU_VBFhWWTo2L2Nu_'+key+'.sh'
-  """
+  #"""
 
   """
   prodCard = prodCardBase+ttHWWlnuany[key][0]
@@ -89,21 +89,23 @@ for key in ZH:
   """
 
 
-  #"""
+  """
   prodCard = prodCardBase+ZH[key][0]
   decayCard = decayCardBase+ZH[key][1]
   name = 'ZHiggs'+key+'ToWW_2L_M-125_13TeV-JHU710'
   fileName='mkJHuJHU_ZhWW_2L_'+key+'.sh'
-  #"""
+  """
 
   f=open(fileName,"w")
-  f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/PowhegV2/CMSSW936ptch2/src/\n")
+  f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/Generator/CMSSW_10_2_16_patch1/src/\n")
+  #f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/PowhegV2/CMSSW936ptch2/src/\n")
   f.write("eval `scramv1 runtime -sh`\n")
-  f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/PowhegV2/CMSSW936ptch2/src/genproductions/bin/JHUGen\n")
+  f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/Generator/CMSSW_10_2_16_patch1/src/genproductions/bin/JHUGen\n")
+  #f.write("cd /afs/cern.ch/user/s/salee/WorkSpace/private/PowhegV2/CMSSW936ptch2/src/genproductions/bin/JHUGen\n")
   f.write("./install.py --card "+prodCard+" --decay-card "+decayCard+" --name "+name+"\n") # install_multi copied to install and PR
   #f.write("./install_multi.py --card "+prodCard+" --decay-card "+decayCard+" --name "+name+"\n")
   f.close()
   cmd = "chmod u+x "+fileName
   os.system(cmd)
-  subCmd='bsub -q 1nd '+fileName
-  os.system(subCmd)
+  #subCmd='bsub -q 1nd '+fileName
+  #os.system(subCmd)

@@ -1,7 +1,10 @@
 EXT="xz"
 #EXT="tgz"
 #EXT="tar.xz"
-ARR_TAR=( $(ls *".${EXT}") )
+#ARR_TAR=( $(ls *".${EXT}") )
+ARR_TAR="ChargedHiggsToCB_M080_tarball.tar.xz"
+#ARR_TAR="ChargedHiggsToCB_M100_tarball.tar.xz"
+
 
 for gridpack in ${ARR_TAR[@]};do
   echo "@@TEST "${gridpack}"@@"
